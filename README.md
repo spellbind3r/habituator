@@ -53,8 +53,8 @@ This project is intentionally scoped to be useful for one person first, then exp
 
 Initial implementation now exists with:
 
-- A static PWA-friendly web scaffold (`index.html`, `src/ui/*`)
-- Tracker creation form covering MVP setup fields
+- A PWA-capable web scaffold with manifest + service worker (`index.html`, `public/*`, `src/ui/*`)
+- Functional tracker creation flow persisted in localStorage with on-screen tracker list
 - Domain sync logic for idempotent event dedupe and server-timestamp last-write-wins
 - Node test coverage for core sync invariants
 
@@ -62,7 +62,7 @@ Initial implementation now exists with:
 
 ```bash
 npm test
-npm run start
+npm run start  # local dev server on :4173
 ```
 
 Then open <http://localhost:4173>.
