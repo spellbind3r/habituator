@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habituator</title>
+    <link rel="stylesheet" href="src/ui/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Habituator</h1>
+      <p class="subtitle">PWA-first daily logger MVP scaffold</p>
+      <section class="card">
+        <h2>Create tracker</h2>
+        <label>
+          What do you want to log?
+          <input id="tracker-name" placeholder="Walk the dog" />
+        </label>
+
+        <label>
+          Frequency
+          <select id="frequency">
+            <option value="hourly">Hourly</option>
+            <option value="daily" selected>Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="specific_dates">Specific dates</option>
+          </select>
+        </label>
+
+        <label>
+          Value type
+          <select id="value-type">
+            <option value="binary" selected>Done / not done</option>
+            <option value="keyword">Keyword</option>
+            <option value="list">List select</option>
+            <option value="time">Time</option>
+          </select>
+        </label>
+
+        <label>
+          Goal
+          <input id="goal" placeholder="Improve consistency" />
+        </label>
+
+        <button id="create-tracker" type="button" disabled>
+          Create tracker (next step: persist + sync)
+        </button>
+      </section>
+    </main>
+
+    <script type="module" src="src/ui/app.js"></script>
+  </body>
+</html>
