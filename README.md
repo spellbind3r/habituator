@@ -15,12 +15,12 @@ This project is intentionally scoped to be useful for one person first, then exp
 - Installable PWA (mobile + desktop browser)
 - Simple log template creation:
   - What to log
-  - Frequency: hourly/daily/weekly/monthly/specific dates
-  - Goal/motivation
+  - Frequency: hourly/daily/weekly/monthly/specific dates/whenever-occurs
+  - One or more goals/motivations
 - Log value types:
   - done/not done
   - short keyword (with autocomplete from your own history)
-  - select from list
+  - select from list (specified as comma/newline-separated items at tracker setup)
   - time value
 - Reminder channels:
   - web notifications (where available)
@@ -55,6 +55,8 @@ Initial implementation now exists with:
 
 - A PWA-capable web scaffold with manifest + service worker (`index.html`, `public/*`, `src/ui/*`)
 - Functional tracker creation flow persisted in localStorage with on-screen tracker list
+- Supports unscheduled “whenever it occurs” trackers and multiple goals per tracker
+- Includes a “Log now” module and recent event timeline for quick local capture
 - Domain sync logic for idempotent event dedupe and server-timestamp last-write-wins
 - Node test coverage for core sync invariants
 

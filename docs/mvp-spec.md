@@ -8,9 +8,10 @@ A personal-use daily logger with minimal-friction capture and reliable sync.
 
 1. As a user, I can create a tracker with:
    - title
-   - frequency (hourly/daily/weekly/monthly/specific dates)
+   - frequency (hourly/daily/weekly/monthly/specific dates/as-needed)
    - value type (binary, keyword, list, time)
-   - goal text
+   - one or more goals
+   - list options (when value type is list), provided via comma/newline separated items
 2. As a user, I can quickly submit today's log value in one interaction where possible.
 3. As a user, I can log while offline and sync when back online.
 4. As a user, I can receive reminders and mark completion directly.
@@ -19,7 +20,7 @@ A personal-use daily logger with minimal-friction capture and reliable sync.
 ## Data model (initial)
 
 - `tracker`
-  - `id`, `user_id`, `name`, `frequency_type`, `frequency_config_json`, `value_type`, `goal`, `created_at`
+  - `id`, `user_id`, `name`, `frequency_type`, `frequency_config_json`, `value_type`, `goals_json`, `list_items_json`, `created_at`
 - `log_event` (append-only)
   - `event_id` (client UUID), `user_id`, `tracker_id`, `period_key`, `value_json`, `client_ts`, `server_ts`, `device_id`
 - `reminder_rule`
@@ -51,3 +52,10 @@ A personal-use daily logger with minimal-friction capture and reliable sync.
 - Native apps
 - HealthKit / Apple Health ingestion
 - Causal inference claims in insights
+
+
+## Notes on list-value trackers
+
+- List items are defined during tracker setup as comma-separated and/or newline-separated text.
+- Parsing trims whitespace, drops empty items, and de-duplicates values.
+- Example: `Home cooked, Takeaway\nSkipped` -> `["Home cooked", "Takeaway", "Skipped"]`.
